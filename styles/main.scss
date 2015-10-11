@@ -1,14 +1,133 @@
-$icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+@import "compass";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css");
 
-// bower:scss
-@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-// endbower
+// @import url("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css");
 
-@import "app";
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  &.app {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    padding: 0px;
+  }
+}
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+h1, h2, h3 {
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  line-height: 1.1;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+a,
+button {
+  @include transition(background-color .2s, color .2s, border-color .2s);
+  cursor: pointer;
+}
+
+p {
+  color: #606060;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  &.meta {
+    font-size: 14px;
+    color: #808080;
+    padding-bottom: 10px;
+  }
+}
+
+.google-background {
+
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0; /* Set z-index to 0 as it will be on a layer below the contact form */
+}
+
+.screen-wrapper {
+  @include flex(1);
+  @include display-flex(flex);
+  @include justify-content(center);
+  @include align-content(center);
+  @include align-items(center);
+  height: 100%;
+  background-color: rgba(40, 75, 114, 0.75);
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  border-radius: 3px;
+  background-color: #fff;
+  width: 310px;
+  min-height: 430px;
+
+  .card-header {
+    &.avatar-wrapper {
+      background: url("/images/avatar-image.jpg") no-repeat 50% 50%;
+      width: 310px;
+      height: 204px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+
+      @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+        background: url("/images/avatar-image.jpg") no-repeat 50% 50%;
+      }
+    }
+  }
+
+  .card-content {
+    padding: 30px;
+  }
+
+  .card-footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @include display-flex(flex);
+    @include justify-content(space-around);
+    @include flex-flow(row wrap);
+    background-color: rgba(0, 0, 0, 0.1);
+
+    li a {
+      position: relative;
+      display: block;
+      padding: 10px;
+      color: #bfbfbf;
+
+      &:hover, &a:focus {
+        i.fa-github {
+          color: #000;
+        }
+        i.fa-linkedin-square {
+          color: #0177b5;
+        }
+        i.fa-dribbble {
+          color: #f26798;
+        }
+      }
+    }
+  }
+}
+
+#map-canvas {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: -200px;
+  left: 0;
+  right: 0;
+  z-index: 0;
 }
