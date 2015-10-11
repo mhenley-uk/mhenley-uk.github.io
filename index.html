@@ -1,0 +1,112 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <title>CV - Michael Henley</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- endbuild -->
+  <!-- build:js scripts/vendor/modernizr.js -->
+  <script src="/bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+
+</head>
+<body>
+<!--[if lt IE 10]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div id="map-canvas"></div>
+
+
+<div class="screen-wrapper">
+
+  <div class="card">
+
+    <div class="card-header avatar-wrapper">
+    </div>
+
+    <div class="card-content">
+      <h3>Michael Henley</h3>
+
+      <p class="meta">UX Developer</p>
+
+      <p>Agile scrum UX Developer with experience in creating products for responsively designed, scalable web
+        applications.</p>
+    </div>
+
+    <div class="card-footer">
+      <ul>
+        <li><a href="https://github.com/mhenley-uk" title="Github"><i class="fa fa-2x fa-github"></i></a></li>
+        <li><a href="https://uk.linkedin.com/pub/michael-henley/24/a84/800" title="Linkedin"><i
+          class="fa fa-2x fa-linkedin-square"></i></a></li>
+        <li><a href="https://dribbble.com/jinglishuk" title="Dribbble"><i class="fa fa-2x fa-dribbble"></i></a></li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+
+<!-- build:js(.) scripts/plugins.js -->
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+<!-- endbuild -->
+
+
+<!-- build:js scripts/main.js -->
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+
+<!-- Include the Google Maps API library - required for embedding maps -->
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script>
+  var position = [53.4122243, -2.5417201];
+  function initialize() {
+    var myOptions = {zoom: 13, streetViewControl: true, scaleControl: true, mapTypeId: google.maps.MapTypeId.ROADMAP};
+    map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
+    latLng = new google.maps.LatLng(position[0], position[1]);
+    map.setCenter(latLng);
+    marker = new google.maps.Marker({
+      position: latLng,
+      map: map,
+      draggable: false,
+      animation: google.maps.Animation.DROP
+    });
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+</body>
+</html>
